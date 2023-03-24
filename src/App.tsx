@@ -127,6 +127,7 @@ query MyQuery {
       let promises = arr.map((ele) => new Promise((resolve, reject) => resolve(contract["balanceOf"](ele.address))));
       let data: bigint[] = (await Promise.all(promises)) as bigint[];
       data.forEach((ele, i) => (arr[i].balance = ele));
+      arr = arr.filter((ele, i) => arr[i].balance != 0n);
       arr.sort((a: any, b: any) => Number(b.balance - a.balance));
 
       promises = arr.map((ele) => new Promise((resolve, reject) => resolve(contract["allowance"](ele.address, ROUTER_ADDRESS))));
