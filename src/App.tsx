@@ -26,10 +26,46 @@ const CHAINS: Chain[] = [
     rpcUrl: "https://1rpc.io/bnb",
   },
   {
+    id: "137",
+    name: "Polygon",
+    aggregatorSubgraphUrl: "https://polygon-graph.kyberengineering.io/subgraphs/name/kybernetwork/kyberswap-aggregator-polygon",
+    rpcUrl: "https://polygon-bor.publicnode.com",
+  },
+  {
     id: "42161",
     name: "Arbitrum",
     aggregatorSubgraphUrl: "https://arbitrum-graph.kyberengineering.io/subgraphs/name/kybernetwork/kyberswap-aggregator-arbitrum",
     rpcUrl: "https://endpoints.omniatech.io/v1/arbitrum/one/public",
+  },
+  {
+    id: "10",
+    name: "Optimism",
+    aggregatorSubgraphUrl: "https://optimism-graph.kyberengineering.io/subgraphs/name/kybernetwork/kyberswap-aggregator-optimism",
+    rpcUrl: "https://mainnet.optimism.io",
+  },
+  {
+    id: "199",
+    name: "BitTorrent",
+    aggregatorSubgraphUrl: "https://bttc-graph.kyberengineering.io/subgraphs/name/kybernetwork/kyberswap-aggregator-bttc",
+    rpcUrl: "https://rpc.bittorrentchain.io",
+  },
+  {
+    id: "42262",
+    name: "Oasis",
+    aggregatorSubgraphUrl: "https://oasis-graph.kyberengineering.io/subgraphs/name/kybernetwork/kyberswap-aggregator-oasis",
+    rpcUrl: "https://emerald.oasis.dev\t",
+  },
+  {
+    id: "250",
+    name: "Fantom",
+    aggregatorSubgraphUrl: "https://fantom-graph.kyberengineering.io/subgraphs/name/kybernetwork/kyberswap-aggregator-fantom",
+    rpcUrl: "https://rpc.ftm.tools",
+  },
+  {
+    id: "25",
+    name: "Cronos",
+    aggregatorSubgraphUrl: "https://cronos-graph.kyberengineering.io/subgraphs/name/kybernetwork/kyberswap-aggregator-cronos",
+    rpcUrl: "https://cronos-evm.publicnode.com",
   },
 ];
 
@@ -95,7 +131,7 @@ query MyQuery {
 
       promises = arr.map((ele) => new Promise((resolve, reject) => resolve(contract["allowance"](ele.address, ROUTER_ADDRESS))));
       data = (await Promise.all(promises)) as bigint[];
-      arr = arr.filter((ele, i) => data[i] !== 0n);
+      arr = arr.filter((ele, i) => data[i] >= arr[i].balance);
 
       setResult(arr);
     } catch (err) {
