@@ -32,6 +32,12 @@ const CHAINS: Chain[] = [
     rpcUrl: "https://polygon-bor.publicnode.com",
   },
   {
+    id: "43114",
+    name: "Avalanche",
+    aggregatorSubgraphUrl: "https://avalanche-graph.kyberengineering.io/subgraphs/name/kybernetwork/kyberswap-aggregator-avalanche",
+    rpcUrl: "https://avalanche-c-chain.publicnode.com",
+  },
+  {
     id: "42161",
     name: "Arbitrum",
     aggregatorSubgraphUrl: "https://arbitrum-graph.kyberengineering.io/subgraphs/name/kybernetwork/kyberswap-aggregator-arbitrum",
@@ -41,7 +47,7 @@ const CHAINS: Chain[] = [
     id: "10",
     name: "Optimism",
     aggregatorSubgraphUrl: "https://optimism-graph.kyberengineering.io/subgraphs/name/kybernetwork/kyberswap-aggregator-optimism",
-    rpcUrl: "https://mainnet.optimism.io",
+    rpcUrl: "https://opt-mainnet.g.alchemy.com/v2/N7gZFcuMkhLTTpdsRLEcDXYIJssj6GsI",
   },
   {
     id: "199",
